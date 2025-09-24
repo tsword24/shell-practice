@@ -2,10 +2,10 @@
 
 START_TIME=$(date +%s)
 
-sleep 10 &
+sleep 10 
 
 END_TIME=$(date +%s)
 
-TIMESTAMP=$($END_TIME-$START_TIME)
+TIMESTAMP=$(($END_TIME-$START_TIME))
 
 echo "timestamp ($TIMESTAMP)"
