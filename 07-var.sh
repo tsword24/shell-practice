@@ -6,4 +6,6 @@ sleep 10 &
 
 END_TIME=$(date +%s)
 
-echo "timestamp ($START_TIME-$END_TIME)"
+TIMESTAMP=$($END_TIME-$START_TIME)
+
+echo "timestamp ($TIMESTAMP)"
