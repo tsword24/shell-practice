@@ -19,24 +19,26 @@ if [ $USERID -ne 0 ]; then
 fi
 
 VALIDATE(){
-    if [ $1 -eq 0 ];then
+    if [ $1 -ne 0 ];then
         echo -e "Install is $G success$N" 
     else
         echo -e "$R Failure$N"
     fi
 }
 
-dnf install mysql -y &>>$LOG_FILE
-if [ $? -eq 0 ];then 
+dnf list install mysql -y &>>$LOG_FILE
+if [ $? -ne 0 ];then 
     echo "Installing my sql"
+    dnf install mysql -y
     VALIDATE $? "MYSQL"
 else
     echo -e "Already installed ... $Y Skipping $N"
 fi
 
-dnf install nginx -y &>>$LOG_FILE
+dnf list install nginx -y &>>$LOG_FILE
 if [ $? -eq 0 ];then 
     echo "Installing nginx"
+    dnf install nginx -y
     VALIDATE $? "nginx"
 else
     echo -e "Already installed ... $Y Skipping $N"
