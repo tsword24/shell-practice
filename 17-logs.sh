@@ -11,7 +11,7 @@ SCRIPT_NAME="$( echo $0 | cut -d "." -f1)"
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
-echo "Script Started at $(date)" 
+echo "Script Started at $(date)" | tee -a $LOG_FILE
 
 if [ $USERID -ne 0 ]; then 
     echo "Give root privilages"
@@ -37,8 +37,8 @@ fi
 
 dnf list installed nginx  &>>$LOG_FILE
 if [ $? -ne 0 ];then 
-    echo "Installing nginx" &>>$LOG_FILE
-    dnf install nginx -y
+    echo "Installing nginx" 
+    dnf install nginx -y &>>$LOG_FILE
     VALIDATE $? "nginx"
 else
     echo -e "Already installed ... $Y Skipping $N"
