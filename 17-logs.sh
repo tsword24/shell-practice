@@ -20,26 +20,26 @@ fi
 
 VALIDATE(){
     if [ $1 -eq 0 ];then
-        echo -e "Install is $G success$N" 
+        echo -e "Install is $G success$N"  | tee -a $LOG_FILE
     else
-        echo -e "$R Failure$N"
+        echo -e "$R Failure$N" | tee -a $LOG_FILE
     fi
 }
 
 dnf list installed mysql  &>>$LOG_FILE
 if [ $? -ne 0 ];then 
-    echo "Installing my sql"
+    echo "Installing my sql" | tee -a $LOG_FILE
     dnf install mysql -y &>>$LOG_FILE
     VALIDATE $? "MYSQL"
 else
-    echo -e "Already installed ... $Y Skipping $N"
+    echo -e "Already installed ... $Y Skipping $N" | tee -a $LOG_FILE
 fi
 
 dnf list installed nginx  &>>$LOG_FILE
 if [ $? -ne 0 ];then 
-    echo "Installing nginx" 
+    echo "Installing nginx" | tee -a $LOG_FILE
     dnf install nginx -y &>>$LOG_FILE
     VALIDATE $? "nginx"
 else
-    echo -e "Already installed ... $Y Skipping $N"
+    echo -e "Already installed ... $Y Skipping $N" | tee -a $LOG_FILE
 fi
