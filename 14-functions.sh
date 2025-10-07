@@ -21,3 +21,6 @@ VALIDATE $? "Mysql"
 
 dnf install nginx -y
 VALIDATE $? "Nginx"
+
+dnf remove mysql -y
+dnf remove nginx -y
