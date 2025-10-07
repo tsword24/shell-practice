@@ -5,6 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 USERID=$(id -u)
+
 LOGS_FOLDER="/var/log/shell-practice"
 SCRIPT_NAME="$( echo $0 | cut -d "." -f1)"
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
@@ -18,7 +19,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 VALIDATE(){
-    if [ $1 -ne 0 ];then
+    if [ $1 -eq 0 ];then
         echo -e "Install is $G success$N" 
     else
         echo -e "$R Failure$N"
