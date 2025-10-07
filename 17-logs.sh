@@ -27,7 +27,7 @@ VALIDATE(){
 }
 
 dnf install mysql -y &>>$LOG_FILE
-if [ $? -ne 0 ];then 
+if [ $? -eq 0 ];then 
     echo "Installing my sql"
     VALIDATE $? "MYSQL"
 else
@@ -35,7 +35,7 @@ else
 fi
 
 dnf install nginx -y &>>$LOG_FILE
-if [ $? -ne 0 ];then 
+if [ $? -eq 0 ];then 
     echo "Installing nginx"
     VALIDATE $? "nginx"
 else
