@@ -44,7 +44,7 @@ else
     echo -e "Already installed ... $Y Skipping $N" | tee -a $LOG_FILE
 fi
 
-for $packages in $@
+for packages in $@
 do 
 #check the packages are installed
 dnf list installed $packages &>>$LOG_FILE
