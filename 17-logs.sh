@@ -7,7 +7,7 @@ N="\e[0m"
 USERID=$(id -u)
 
 LOGS_FOLDER="/var/log/shell-practice"
-SCRIPT_NAME="$( echo $0 | cut -d "." -f1)"
+SCRIPT_NAME="$( echo $0 | cut -d "." -f1)" #to get the script name
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
