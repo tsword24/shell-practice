@@ -50,7 +50,7 @@ do
 dnf list installed $packages &>>$LOG_FILE
 if [ $? -ne 0 ];then
 dnf install $packages -y &>>$LOG_FILE
-VALIDATE $? "$packages
+VALIDATE $? "$packages"
 else
 echo "this $packages is already installed $Y Skipping $N"
 fi
