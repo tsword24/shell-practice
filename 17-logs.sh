@@ -53,4 +53,5 @@ dnf install $packages -y &>>$LOG_FILE
 VALIDATE $? "$packages
 else
 echo "this $packages is already installed $Y Skipping $N"
+fi
 done
