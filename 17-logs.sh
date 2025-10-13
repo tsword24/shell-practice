@@ -43,3 +43,14 @@ if [ $? -ne 0 ];then
 else
     echo -e "Already installed ... $Y Skipping $N" | tee -a $LOG_FILE
 fi
+
+for $packages in $@
+do 
+#check the packages are installed
+dnf list installed $packages &>>$LOG_FILE
+if [ $? -ne 0 ];then
+dnf install $packages -y &>>$LOG_FILE
+VALIDATE $? "$packages
+else
+echo "this $packages is already installed $Y Skipping $N"
+done
