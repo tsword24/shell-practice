@@ -7,7 +7,7 @@ echo -e "hello"
 #     echo "this is an error line"
 # }
 
-trap 'err_or' ERR
+trap 'echo "this is an error line $LINENO,Command is $BASH_COMMAND' ERR
 
 echo -e "before the error"
 piuqwhsdkjhlhnbxkvjskhdfkjh #here shell understands there is an error the signal is ERR
