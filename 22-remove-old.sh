@@ -14,7 +14,7 @@ mkdir -p $LOGS_FOLDER
 echo "Script Started at $(date)" | tee -a $LOG_FILE
 
 mkdir -p /home/ec2-user/app-logs
-SOURCE_DIR=/home/ec2-user/app-logs
+SOURCE_DIR=/
 if [ ! -d $SOURCE_DIR ]; then 
     echo -e "ERR: root privilages"
     exit 1
