@@ -25,4 +25,5 @@ FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f)
 while IFS= read -r filepath
 do
     echo "file path is $filepath"
+    rm -rf $filepath
 done <<<$FILES_TO_DELETE
