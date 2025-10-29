@@ -2,4 +2,4 @@
 
 while IFS=read -r line;do
 echo "Line is:$line"
-done
+done < 17-logs.sh
