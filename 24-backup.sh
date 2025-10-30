@@ -11,7 +11,9 @@ DESTINATION_DIR=$2
 DAYS=${3:-14}
 LOGS_FOLDER="/var/log/shell-practice"
 SCRIPT_NAME="$( echo $0 | cut -d "." -f1)" #to get the script name
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
+#LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
+LOG_FILE="$LOGS_FOLDER/backup.log" #script is being modified to be run as command
+
 
 mkdir -p $LOGS_FOLDER
 echo "Script Started at $(date)" | tee -a $LOG_FILE
