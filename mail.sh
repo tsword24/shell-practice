@@ -7,7 +7,7 @@ MESSAGE=$4
 IP_ADDRESS=$5
 TO_TEAM=$6
 
-FINAL_BODY=$(sed -e "s/ALERT_TYPE/$ALERT_TYPE/g" -e "s/MESSAGE/$MESSAGE/g" -e "s/IP_ADDRESS/$IP_ADDRESS/g" -e "s/TO_TEAM/$TO_TEAM/g" -e "s/")
+FINAL_BODY=$(sed -e "s/ALERT_TYPE/$ALERT_TYPE/g" -e "s/MESSAGE/$MESSAGE/g" -e "s/IP_ADDRESS/$IP_ADDRESS/g" -e "s/TO_TEAM/$TO_TEAM/g" template.html)
 
 {
 echo "To: $TO_ADDRESSS"
